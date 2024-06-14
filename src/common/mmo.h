@@ -65,7 +65,7 @@
 
 #ifndef PACKETVER
 	#define PACKETVER 20190530
-#endif // PACKETVER
+	#endif // PACKETVER
 
 //Uncomment the following line if your client is ragexeRE instead of ragexe (required because of conflicting packets in ragexe vs ragexeRE).
 //#define ENABLE_PACKETVER_RE
@@ -337,6 +337,8 @@ STATIC_ASSERT(MAX_ACHIEVEMENT_RANKS <= 255, "This value is limited by the client
 //For character names, title names, guilds, maps, etc.
 //Includes null-terminator as it is the length of the array.
 #define NAME_LENGTH (23 + 1)
+//NPC names can be longer than it's displayed on client (NAME_LENGTH).
+#define NPC_NAME_LENGTH 50
 //For item names, which tend to have much longer names.
 #define ITEM_NAME_LENGTH 50
 //For Map Names, which the client considers to be 16 in length including the .gat extension.

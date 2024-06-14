@@ -60,7 +60,7 @@ struct npc_timerevent_list {
 /** list of labels within a NPC (used internally by the label db) */
 struct npc_label_list {
 	/** label name */
-	char name[NAME_LENGTH];
+	char name[NAME_LENGTH+1];
 	/** start point within the script */
 	int pos;
 	/** optional label flags */
@@ -96,8 +96,8 @@ struct npc_data {
 	struct npc_data *master_nd;
 	int class_;
 	short speed;
-	char name[NAME_LENGTH+1];// display name
-	char exname[NAME_LENGTH+1];// unique npc name
+	char name[NPC_NAME_LENGTH +1];// display name
+	char exname[NPC_NAME_LENGTH +1];// unique npc name
 	int chat_id;
 	int touching_id;
 	int64 next_walktime;
