@@ -2,7 +2,7 @@
  * This file is part of Hercules.
  * http://herc.ws - http://github.com/HerculesWS/Hercules
  *
- * Copyright (C) 2013-2024 Hercules Dev Team
+ * Copyright (C) 2013-2025 Hercules Dev Team
  *
  * Hercules is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@
 #include "common/cbasetypes.h"
 #include "common/mmo.h"
 #include "common/packetsstatic_len.h"
+#include "common/packetsmacro.h"
 
 // Packet DB
 #define MAX_PACKET_POS 20

@@ -2,7 +2,7 @@
  * This file is part of Hercules.
  * http://herc.ws - http://github.com/HerculesWS/Hercules
  *
- * Copyright (C) 2013-2024 Hercules Dev Team
+ * Copyright (C) 2013-2025 Hercules Dev Team
  *
  * Hercules is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -448,6 +448,11 @@ static bool hplugins_addconf(unsigned int pluginID, enum HPluginConfType type, c
 
 	if (type >= HPCT_MAX) {
 		ShowError("HPM->addConf:%s: unknown point '%u' specified for config '%s'\n",HPM->pid2name(pluginID),type,name);
+		return false;
+	}
+
+	if (strnlen(name, HPM_ADDCONF_LENGTH) >= HPM_ADDCONF_LENGTH) {
+		ShowError("HPM->addConf:%s: config '%s' name/path is too long. Maximum is %d characters (see #define HPM_ADDCONF_LENGTH). Skipping it.\n", HPM->pid2name(pluginID), name, HPM_ADDCONF_LENGTH - 1);
 		return false;
 	}
 

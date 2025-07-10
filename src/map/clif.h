@@ -2,7 +2,7 @@
  * This file is part of Hercules.
  * http://herc.ws - http://github.com/HerculesWS/Hercules
  *
- * Copyright (C) 2012-2024 Hercules Dev Team
+ * Copyright (C) 2012-2025 Hercules Dev Team
  * Copyright (C) Athena Dev Teams
  *
  * Hercules is free software: you can redistribute it and/or modify
@@ -72,6 +72,8 @@ enum macro_report_status;
 enum grade_level;
 enum grade_ui_result;
 enum item_reform_status;
+enum navigation_mode;
+enum navigation_service;
 
 /**
  * Defines
@@ -963,6 +965,9 @@ struct clif_interface {
 	unsigned short (*decrypt_cmd) ( int cmd, struct map_session_data *sd );
 	/* client-specific logic */
 	void (*format_itemlink) (struct StringBuf *buf, const struct item *it);
+	void (*format_navigation) (struct StringBuf *buf, const char *label, const char *mapname, int x, int y, enum navigation_mode mode, enum navigation_service services_flag, bool show_window, int monster_id);
+	void (*format_url) (struct StringBuf *buf, const char *label, const char *url, int width, int height);
+	void (*format_tipbox) (struct StringBuf *buf, const char *label, int tip_id);
 	/* auth */
 	void (*authok) (struct map_session_data *sd);
 	void (*auth_error) (int fd, int errorCode);
@@ -1267,6 +1272,7 @@ struct clif_interface {
 	void (*messages) (const int fd, const char *mes, ...) __attribute__((format(printf, 2, 3)));
 	const char *(*process_chat_message) (struct map_session_data *sd, const struct packet_chat_message *packet, char *out_buf, int out_buflen);
 	bool (*process_whisper_message) (struct map_session_data *sd, const struct packet_whisper_message *packet, char *out_name, char *out_message, int out_messagelen);
+	bool (*validate_message) (struct map_session_data *sd, char *message);
 	void (*wisexin) (struct map_session_data *sd,int type,int flag);
 	void (*wisall) (struct map_session_data *sd,int type,int flag);
 	void (*PMIgnoreList) (struct map_session_data* sd);

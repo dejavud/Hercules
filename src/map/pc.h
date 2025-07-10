@@ -2,7 +2,7 @@
  * This file is part of Hercules.
  * http://herc.ws - http://github.com/HerculesWS/Hercules
  *
- * Copyright (C) 2012-2024 Hercules Dev Team
+ * Copyright (C) 2012-2025 Hercules Dev Team
  * Copyright (C) Athena Dev Teams
  *
  * Hercules is free software: you can redistribute it and/or modify
@@ -1283,6 +1283,10 @@ END_ZEROED_BLOCK; /* End */
 	bool (*auto_exp_insurance) (struct map_session_data *sd);
 
 	void (*crimson_marker_clear) (struct map_session_data *sd);
+
+	bool (*is_own_skill) (struct map_session_data *sd, uint16 skill_id);
+	void (*clear_existing_cloneskill) (struct map_session_data *sd, bool clear_vars);
+	void (*clear_existing_reproduceskill) (struct map_session_data *sd, bool clear_vars);
 };
 
 #ifdef HERCULES_CORE

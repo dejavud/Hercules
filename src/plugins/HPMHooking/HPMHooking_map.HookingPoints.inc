@@ -2,7 +2,7 @@
  * This file is part of Hercules.
  * http://herc.ws - http://github.com/HerculesWS/Hercules
  *
- * Copyright (C) 2013-2024 Hercules Dev Team
+ * Copyright (C) 2013-2025 Hercules Dev Team
  *
  * Hercules is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -372,6 +372,9 @@ struct HookingPointData HookingPoints[] = {
 	{ HP_POP(clif->parse_cmd, HP_clif_parse_cmd) },
 	{ HP_POP(clif->decrypt_cmd, HP_clif_decrypt_cmd) },
 	{ HP_POP(clif->format_itemlink, HP_clif_format_itemlink) },
+	{ HP_POP(clif->format_navigation, HP_clif_format_navigation) },
+	{ HP_POP(clif->format_url, HP_clif_format_url) },
+	{ HP_POP(clif->format_tipbox, HP_clif_format_tipbox) },
 	{ HP_POP(clif->authok, HP_clif_authok) },
 	{ HP_POP(clif->auth_error, HP_clif_auth_error) },
 	{ HP_POP(clif->authrefuse, HP_clif_authrefuse) },
@@ -658,6 +661,7 @@ struct HookingPointData HookingPoints[] = {
 	{ HP_POP(clif->messageln, HP_clif_messageln) },
 	{ HP_POP(clif->process_chat_message, HP_clif_process_chat_message) },
 	{ HP_POP(clif->process_whisper_message, HP_clif_process_whisper_message) },
+	{ HP_POP(clif->validate_message, HP_clif_validate_message) },
 	{ HP_POP(clif->wisexin, HP_clif_wisexin) },
 	{ HP_POP(clif->wisall, HP_clif_wisall) },
 	{ HP_POP(clif->PMIgnoreList, HP_clif_PMIgnoreList) },
@@ -2824,6 +2828,9 @@ struct HookingPointData HookingPoints[] = {
 	{ HP_POP(pc->expandInventory, HP_pc_expandInventory) },
 	{ HP_POP(pc->auto_exp_insurance, HP_pc_auto_exp_insurance) },
 	{ HP_POP(pc->crimson_marker_clear, HP_pc_crimson_marker_clear) },
+	{ HP_POP(pc->is_own_skill, HP_pc_is_own_skill) },
+	{ HP_POP(pc->clear_existing_cloneskill, HP_pc_clear_existing_cloneskill) },
+	{ HP_POP(pc->clear_existing_reproduceskill, HP_pc_clear_existing_reproduceskill) },
 /* pcre_interface */
 	{ HP_POP(libpcre->compile, HP_libpcre_compile) },
 	{ HP_POP(libpcre->study, HP_libpcre_study) },
@@ -3113,6 +3120,7 @@ struct HookingPointData HookingPoints[] = {
 	{ HP_POP(script->buildin_query_sql_sub, HP_script_buildin_query_sql_sub) },
 	{ HP_POP(script->buildin_instance_warpall_sub, HP_script_buildin_instance_warpall_sub) },
 	{ HP_POP(script->buildin_mobuseskill_sub, HP_script_buildin_mobuseskill_sub) },
+	{ HP_POP(script->format_navigation, HP_script_format_navigation) },
 	{ HP_POP(script->buildin_rodex_sendmail_sub, HP_script_buildin_rodex_sendmail_sub) },
 	{ HP_POP(script->cleanfloor_sub, HP_script_cleanfloor_sub) },
 	{ HP_POP(script->run_func, HP_script_run_func) },

@@ -2,7 +2,7 @@
  * This file is part of Hercules.
  * http://herc.ws - http://github.com/HerculesWS/Hercules
  *
- * Copyright (C) 2012-2024 Hercules Dev Team
+ * Copyright (C) 2012-2025 Hercules Dev Team
  * Copyright (C) Athena Dev Teams
  *
  * Hercules is free software: you can redistribute it and/or modify
@@ -1321,6 +1321,14 @@ struct status_change {
 struct s_maxhp_entry {
 	int max_level; ///< Highest level which this entry still applies to
 	int value; ///< The actual max hp value
+};
+
+enum e_unit_params {
+	UNIT_PARAM_NAME,
+	UNIT_PARAM_NATHEAL_WEIGHT_RATE,
+	UNIT_PARAM_MAX_ASPD,
+	UNIT_PARAM_MAX_HP,
+	UNIT_PARAM_MAX_STATS,
 };
 
 struct s_unit_params {

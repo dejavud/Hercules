@@ -2,7 +2,7 @@
  * This file is part of Hercules.
  * http://herc.ws - http://github.com/HerculesWS/Hercules
  *
- * Copyright (C) 2013-2024 Hercules Dev Team
+ * Copyright (C) 2013-2025 Hercules Dev Team
  *
  * Hercules is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,6 +35,8 @@ struct map_session_data;
 struct hplugin_data_store;
 
 #define HPM_VERSION "1.2"
+
+// Maximum length of the configuration path for configs added with add*Conf
 #define HPM_ADDCONF_LENGTH 40
 
 struct hplugin_info {

@@ -2,7 +2,7 @@
  * This file is part of Hercules.
  * http://herc.ws - http://github.com/HerculesWS/Hercules
  *
- * Copyright (C) 2013-2024 Hercules Dev Team
+ * Copyright (C) 2013-2025 Hercules Dev Team
  *
  * Hercules is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -694,6 +694,12 @@ struct {
 	struct HPMHookPoint *HP_clif_decrypt_cmd_post;
 	struct HPMHookPoint *HP_clif_format_itemlink_pre;
 	struct HPMHookPoint *HP_clif_format_itemlink_post;
+	struct HPMHookPoint *HP_clif_format_navigation_pre;
+	struct HPMHookPoint *HP_clif_format_navigation_post;
+	struct HPMHookPoint *HP_clif_format_url_pre;
+	struct HPMHookPoint *HP_clif_format_url_post;
+	struct HPMHookPoint *HP_clif_format_tipbox_pre;
+	struct HPMHookPoint *HP_clif_format_tipbox_post;
 	struct HPMHookPoint *HP_clif_authok_pre;
 	struct HPMHookPoint *HP_clif_authok_post;
 	struct HPMHookPoint *HP_clif_auth_error_pre;
@@ -1266,6 +1272,8 @@ struct {
 	struct HPMHookPoint *HP_clif_process_chat_message_post;
 	struct HPMHookPoint *HP_clif_process_whisper_message_pre;
 	struct HPMHookPoint *HP_clif_process_whisper_message_post;
+	struct HPMHookPoint *HP_clif_validate_message_pre;
+	struct HPMHookPoint *HP_clif_validate_message_post;
 	struct HPMHookPoint *HP_clif_wisexin_pre;
 	struct HPMHookPoint *HP_clif_wisexin_post;
 	struct HPMHookPoint *HP_clif_wisall_pre;
@@ -5518,6 +5526,12 @@ struct {
 	struct HPMHookPoint *HP_pc_auto_exp_insurance_post;
 	struct HPMHookPoint *HP_pc_crimson_marker_clear_pre;
 	struct HPMHookPoint *HP_pc_crimson_marker_clear_post;
+	struct HPMHookPoint *HP_pc_is_own_skill_pre;
+	struct HPMHookPoint *HP_pc_is_own_skill_post;
+	struct HPMHookPoint *HP_pc_clear_existing_cloneskill_pre;
+	struct HPMHookPoint *HP_pc_clear_existing_cloneskill_post;
+	struct HPMHookPoint *HP_pc_clear_existing_reproduceskill_pre;
+	struct HPMHookPoint *HP_pc_clear_existing_reproduceskill_post;
 	struct HPMHookPoint *HP_libpcre_compile_pre;
 	struct HPMHookPoint *HP_libpcre_compile_post;
 	struct HPMHookPoint *HP_libpcre_study_pre;
@@ -6080,6 +6094,8 @@ struct {
 	struct HPMHookPoint *HP_script_buildin_instance_warpall_sub_post;
 	struct HPMHookPoint *HP_script_buildin_mobuseskill_sub_pre;
 	struct HPMHookPoint *HP_script_buildin_mobuseskill_sub_post;
+	struct HPMHookPoint *HP_script_format_navigation_pre;
+	struct HPMHookPoint *HP_script_format_navigation_post;
 	struct HPMHookPoint *HP_script_buildin_rodex_sendmail_sub_pre;
 	struct HPMHookPoint *HP_script_buildin_rodex_sendmail_sub_post;
 	struct HPMHookPoint *HP_script_cleanfloor_sub_pre;
@@ -8271,6 +8287,12 @@ struct {
 	int HP_clif_decrypt_cmd_post;
 	int HP_clif_format_itemlink_pre;
 	int HP_clif_format_itemlink_post;
+	int HP_clif_format_navigation_pre;
+	int HP_clif_format_navigation_post;
+	int HP_clif_format_url_pre;
+	int HP_clif_format_url_post;
+	int HP_clif_format_tipbox_pre;
+	int HP_clif_format_tipbox_post;
 	int HP_clif_authok_pre;
 	int HP_clif_authok_post;
 	int HP_clif_auth_error_pre;
@@ -8843,6 +8865,8 @@ struct {
 	int HP_clif_process_chat_message_post;
 	int HP_clif_process_whisper_message_pre;
 	int HP_clif_process_whisper_message_post;
+	int HP_clif_validate_message_pre;
+	int HP_clif_validate_message_post;
 	int HP_clif_wisexin_pre;
 	int HP_clif_wisexin_post;
 	int HP_clif_wisall_pre;
@@ -13095,6 +13119,12 @@ struct {
 	int HP_pc_auto_exp_insurance_post;
 	int HP_pc_crimson_marker_clear_pre;
 	int HP_pc_crimson_marker_clear_post;
+	int HP_pc_is_own_skill_pre;
+	int HP_pc_is_own_skill_post;
+	int HP_pc_clear_existing_cloneskill_pre;
+	int HP_pc_clear_existing_cloneskill_post;
+	int HP_pc_clear_existing_reproduceskill_pre;
+	int HP_pc_clear_existing_reproduceskill_post;
 	int HP_libpcre_compile_pre;
 	int HP_libpcre_compile_post;
 	int HP_libpcre_study_pre;
@@ -13657,6 +13687,8 @@ struct {
 	int HP_script_buildin_instance_warpall_sub_post;
 	int HP_script_buildin_mobuseskill_sub_pre;
 	int HP_script_buildin_mobuseskill_sub_post;
+	int HP_script_format_navigation_pre;
+	int HP_script_format_navigation_post;
 	int HP_script_buildin_rodex_sendmail_sub_pre;
 	int HP_script_buildin_rodex_sendmail_sub_post;
 	int HP_script_cleanfloor_sub_pre;
